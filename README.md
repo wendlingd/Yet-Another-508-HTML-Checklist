@@ -26,6 +26,6 @@ http://htmlpreview.github.com/?https://github.com/wendlingd/Yet-Another-508-HTML
 
 ## Problems ##
 
-The interactivity comes from a JavaScript self-posting form. When a checkbox is checked, remediation advice is writeen into the textarea id="emailText". Should the user be notified of this new remediation advice. Part of the page has been updated. How might a person hear from the screenreader, what the new content is?
+The interactivity comes from a JavaScript self-posting form. When a checkbox is checked, remediation advice is writeen into the textarea id="emailText". Should the user be notified of this new remediation advice. Part of the page has been updated. How might a person hear from the screenreader, what the new content is? NVDA just says, "check." I think the entire remediation block should be read? But, I'm out of my depth; perhaps there's a better solution?
 
 I would not want to promote an accessibility testing tool that is not itself accessible.
