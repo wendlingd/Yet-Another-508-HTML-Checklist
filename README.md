@@ -1,5 +1,5 @@
 # Yet-Another-508-HTML-Checklist
-Checklist: Section 508 procedures and remediation advice in one interactive page
+Section 508 procedures and remediation advice in one interactive page
 
 ## Design challenge ##
 
@@ -7,7 +7,7 @@ Checklist: Section 508 procedures and remediation advice in one interactive page
 2. Multiple testers should use the same "floor" of testing procedures, to be consistent across the enterprise
 3. Tell the web content author exactly what the first ~2 problems are, and then tell them to run this checklist themselves before re-submitting
 4. Implement BOTH the test procedures AND remediation advice; send the "Just-in-time" advice to the author as you turn the file(s) back for more work - within the CMS or in email
-5. Don't use a database. By not using a database the checklist can be used as one page on an intranet or even one page loaded into the browser - interactivity without a complex back end.
+5. Don't use a database. By not using a database the checklist can be used as one page on an intranet or even one page loaded into the browser from disk - interactivity without a complex back end.
 
 ## Long-term impacts (we hope) ##
 1. Novice testers solve their problems today and get their content posted
@@ -19,3 +19,6 @@ Checklist: Section 508 procedures and remediation advice in one interactive page
 7. Allow authors to test themselves to the enterprise standard
 8. Save time for the testing group by sending the author to authoritative resources.
 
+## View the checklist ##
+
+http://htmlpreview.github.com/?https://github.com/wendlingd/Yet-Another-508-HTML-Checklist/blob/master/HTML-checklist.html
