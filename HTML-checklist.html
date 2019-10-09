@@ -1,0 +1,980 @@
+<!doctype html>
+<!--
+Last updated: 2019-04-11
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>HTML Checklist</title>
+
+    <!--<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">-->
+
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	  
+	  
+	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	  
+    <!-- Bootstrap core CSS -->
+    <!--<link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">-->
+
+    <!-- Custom styles for this template -->
+    <!--<link href="bootstrap-4.3.1-dist/css/local_styles.css" rel="stylesheet">-->
+
+	  <style>
+	  
+/*Don't hide header under top bar*/
+body {
+	padding-top: 3.5rem; /*margin-top: -40px;*/
+}
+
+p, li {
+	    font-size: 0.9rem;
+}
+
+
+/*Don't hide headings for jump links under top bar*/
+*[id]:before { 
+  display: block; 
+  content: " "; 
+  margin-top: -52px; 
+  height: 52px; 
+  visibility: hidden; 
+}
+
+#jumplinks {
+	padding-top: 3.5rem;
+	margin-top: -3.5rem; 
+}
+
+.col, .col-4 {
+	padding-top:1rem;
+	border-top: 1px solid gray;
+/*	border-left: 0.5px solid gray;
+	border-right: 0.5px solid gray;*/
+}
+
+/*.checkbox {
+	text-indent: -1.5em;padding-left: 1.5em;
+}*/
+
+textarea {
+    width: 100%;
+	font-size: 0.9rem;
+}
+
+a {
+	color: #0957c3;
+	text-decoration:underline;
+}
+
+/*.nav-link.disabled {
+	font-weight:700;
+	color: #000;
+	text-decoration: none;
+}*/
+	
+.sectionEnd {
+	padding-bottom:1.5rem;
+	border-bottom: thin solid #9A9696;	
+}
+
+
+/*Attempting to put ul under p, closer to the p*/
+p + ul {
+    margin-top: -1rem;
+}
+
+label {
+    margin-bottom: 0;
+	font-weight: 500;
+	/*white-space: pre-wrap; Not sure how to break long labels correctly*/
+}
+	  </style>
+	  
+	  
+	<script>
+	<!-- 
+	displayText = ""
+	textMagic = new Array
+	textMagicFlag = new Array
+	textMagic[100] = "Hello, the 508-compliance evaluation for [page/site info] has failed. Please make your content compliant, as described at [local documentation], and then complete the HTML Checklist yourself before re-submitting. A few problems are listed below to help you get started. Contact dan.wendling@nih.gov if you would like assistance."
+	textMagic[101] = "Change or remove broken links; we recommend running the Check My Links extension in Chrome."
+	textMagic[102] = "Folder and file names cannot include spaces or symbols. New files - easiest to re-create HTML. For non-HTML files - easiest to change in file system and re-import."
+	textMagic[103] = "Fix non-standard HTML code; this code can cause problems for site visitors. If you're pasting from MS Office, in the TeamSite editor use the Paste from Word button."
+	textMagic[1] = "A1. Site must be free from content that flashes more than 3 times per second. WCAG 2.0 Success Criterion 2.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html"
+	textMagic[2] = "A2. Make text resizable up to 200 percent without degrading quality/understandability. WCAG 2.0 Success Criterion 1.4.4, https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html"
+	textMagic[3] = "A3. Ensure more than one way to locate a web page (Site Search, Site Map, etc.). WCAG 2.0 Success Criterion 2.4.5, https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-mult-loc.html"
+	textMagic[4] = "A4. Make the order of navigational elements consistent across the site. WCAG 2.0 Success Criterion 3.2.3, https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-locations.html"
+	textMagic[5] = "A5. Allow auto updating, moving, blinking, and scrolling content to be paused or adjusted. WCAG 2.0 Success Criterion 2.2.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html"
+	textMagic[6] = "A6. Make all site-controlled documents (documents controlled by our organization - PDF, Word, etc.) fully accessible or have a conforming alternate version. WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html. https://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-conforming-alt-versions-head"
+	textMagic[7] = "A7. Allow time limits on interacting with content, to be turned off, adjusted, or extended. WCAG 2.0 Success Criterion 2.2.1,  https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html"
+	textMagic[8] = "A8. Avoid operational instructions that rely on sensory characteristics (Ex. Click the square, blue button to continue). WCAG 2.0 Success Criterion 1.3.3, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-understanding.html"
+	textMagic[9] = "A9. Make site free from pages that re-direct after a timeout. WCAG 2.0 Success Criterion 2.2.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html"
+	textMagic[10] = "A10. Elements with the same functionality must be consistently identified across pages. WCAG 2.0 Success Criterion 3.2.4, https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-functionality.html"
+	textMagic[11] = "A11. All headings need to accurately describe the content they visually define. WCAG 2.0 Success Criterion 2.4.6, https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html"
+	textMagic[12] = 'B1. Set the default language of the page. WCAG 2.0 Success Criterion 3.1.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-doc-lang-id.html. Correct version for English: <html lang="en">'
+	textMagic[13] = "B2. Set language properly for foreign words or phrases. WCAG 2.0 Success Criterion 3.1.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-other-lang-id.html"
+	textMagic[14] = "B3. Free pages from major errors defined in W3 Failure #70, https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F70, when run against an HTML validator - https://validator.w3.org/. WCAG 2.0 Success Criterion 4.1.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-parses.html. Ensure that no opening tags, closing tags or attributes are malformed."
+	textMagic[15] = "B4. Remove duplicate ID values on the same page. WCAG 2.0 Success Criterion 4.1.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-parses.html"
+	textMagic[16] = "B5. Set a logical reading order when styles are disabled. WCAG 2.0 Success Criterion 1.3.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html. Open WAVE; in the top left, click the No Styles tab. Outline div structure in red, Firefox WDE: Gear &gt; Information &gt; Display Div Order."
+	textMagic[17] = "B6. Assign frame titles to all frames, whose attribute accurately define the content. WCAG 2.0 Success Criterion 4.1.2 https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html"
+	textMagic[18] = "B7. Create a page title attribute that accurately defines the content. WCAG 2.0 Success Criterion 2.4.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html"
+	textMagic[19] = "B8. Content intended to be accessible by assistive technology must refrain from using display:none or aria-hidden=true. WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[20] = "B9. If ARIA is present, the ARIA coding must both meet ARIA specifications and give an accurate representation of the content. WCAG 2.0 Success Criterion 4.1.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html"
+	textMagic[21] = "B10. Fieldset tags should only be used for form fields. (Not to make a box around a piece of content). WCAG 2.0 Success Criterion 1.3.1,  https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[22] = "C1. All elements that can be operated by a mouse also need to be operated by keyboard. WCAG 2.0 Success Criterion 2.1.1,  https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-keyboard-operable.html. WebAIM: Keyboard Accessibility, https://webaim.org/techniques/keyboard/. WebAIM: Using NVDA to Evaluate Web Accessibility, https://webaim.org/articles/nvda/."		
+	textMagic[23] = "C2. When tabbing through the page, all elements need to have a clear visual indication that they have focus. WCAG 2.0 Success Criterion 2.4.7, https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html"
+	textMagic[24] = "C3. Avoid keyboard traps when the page is tabbed through. WCAG 2.0 Success Criterion 2.1.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-trapping.html"
+	textMagic[25] = "C4. Create a logical tab order for the page. WCAG 2.0 Success Criterion 2.4.3, https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-order.html. To look at div impact, Firefox Web Developer Extension: Write div tag names and order to screen: Gear > Information > Display Div Order</p>"
+	textMagic[26] = "C5. When tabbing through the page, avoide changes of context when an element receives focus. WCAG 2.0 Success Criterion 3.2.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-unpredictable-change.html#context-changedef. https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-receive-focus.html"
+	textMagic[27] = "C6. Add a method to bypass blocks of repetitive content (such as navigation). WCAG 2.0 Success Criterion 2.4.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html. The skip-link target should exist and be focusable, https://dequeuniversity.com/rules/axe/3.2/skip-link?application=AxeChrome. Firefox and NVDA, must be viewable in Element List: Caps Lock - F7 or Insert-F7"
+	textMagic[28] = "D1. Information must be conveyed by methods other than color alone. WCAG 2.0 Success Criterion 1.4.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html. Problem example: A chart uses green for good and red for bad with no other way to tell them apart."
+	textMagic[29] = 'D2. All text (with the exception of logos) must have a contrast ratio of 4.5:1 or greater no matter the font size. WCAG 2.0 Success Criterion 1.4.3,  https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html. (Size stipulation not considered by HHS). In Chrome, open the ANDI tool and select "color contrast" from the drop-down. Use the arrow-type buttons to move through the questionable items (if any). axe: Text elements must have sufficient color contrast against the background, https://dequeuniversity.com/rules/axe/3.2/color-contrast?application=AxeChrome. G18: Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text) and background behind the text, https://www.w3.org/TR/2014/NOTE-WCAG20-TECHS-20140916/G18. W3C Understanding WCAG 2.0 Contrast (Minimum) Understanding SC 1.4.3, https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html.'
+	textMagic[30] = "E1. Links must be distinguished by a method other than color. WCAG 2.0 Success Criterion 1.4.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html"
+	textMagic[31] = "E2. All link text must be understood out of context, or if not, generic link must have sufficient content. WCAG 2.0 Success Criterion 2.4.4, https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html. Screen readers assemble the link text for the whole page, into one decontextualized list. Search engine optimization benefits from good link text. Ginny Redish 2012, see chapter 12, p 259. Ensure that Embedded Links are Descriptive, https://guidelines.usability.gov/guidelines/100. Multiple reasons you should NEVER use the link text 'Click here,' https://www.doi.gov/employees/drupal/click-here-not"
+	textMagic[32] = "E3. Linked images must have either an empty alt tag and link text, or no link text and appropriate alt text. WCAG 2.0 Success Criterion 1.1.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html"
+	textMagic[33] = "F1. All images must have an alt attribute. WCAG 2.0 Success Criterion 1.1.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html"
+	textMagic[34] = "F2. All images conveying information must have alt text that provides the same level of understanding a visual user would gain. WCAG 2.0 Success Criterion 1.1.1,  https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html"
+	textMagic[35] = 'F3. All decorative images must have an empty alt tag (alt="") or must be included via the CSS. WCAG 2.0 Success Criterion 1.1.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html'
+	textMagic[36] = "F4. The CSS must be free from any images conveying information that do not have a text alternative. WCAG 2.0 Success Criterion 1.1.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html"
+	textMagic[37] = "F5. Complex images must have an alternate accessible means of understanding. WCAG 2.0 Success Criterion 1.1.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html"
+	textMagic[38] = "F6. The page must be free from images of text (picture of an informational table, screenshot of text from another source, etc.). WCAG 2.0 Success Criterion 1.4.5, https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-text-presentation.html"
+	textMagic[39] = "G1. All audio-only or video-only (video without any sound) files must have an accurate transcript. WCAG 2.0 Success Criterion 1.2.1,  https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-av-only-alt.html"
+	textMagic[40] = "G2. All videos must have accurate and synchronized captions. WCAG 2.0 Success Criterion 1.2.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-captions.html"
+	textMagic[41] = "G3. When informational parts of a video require audio description to be understood by users with limited sight, a second version with audio description must be available. WCAG 2.0 Success Criterion 1.2.5, https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-audio-desc-only.html. HHS resource: https://www.hhs.gov/web/section-508/making-files-accessible/hhs-guidance-audio-description.html"
+	textMagic[42] = "G4. Sound that automatically plays for more than 3 seconds requires a way to turn it off. WCAG 2.0 Success Criterion 1.4.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-dis-audio.html"
+	textMagic[43] = "H1. Layout tables must avoid data table markup (Summary, TH, ID, Headers). WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[44] = "H2. Layout tables must keep the intended order of the content intact. WCAG 2.0 Success Criterion 1.3.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html"
+	textMagic[45] = "H3. Data tables must be implemented with data table coding. WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[46] = "H4. All header cells must utilize the TH tag; all data cells must utilize the TD tag. WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[47] = "H5. All Header cells must contain text. WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[48] = "H6. Data tables with 1 set of both column and row headers must appropriately use scope to associate to data cells. WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[49] = "H7. Data tables with more than 1 set of column and/or row headers must appropriately use id/headers to associate to data cells. WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[50] = "i1. All visual bulleted and numbered lists must be correctly coded with HTML list tags. WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[51] = "i2. All visual headings must be correctly coded with HTML heading tags? (<h1>, <h2>, etc.). WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[52] = "i3. Heading tags must follow a logical hierarchical progression. WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[53] = "i4. Heading tags must only be used on text that defines a section of content. WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[54] = "i5. Emphasized or special text must be correctly coded with HTML heading tags (<em>, <strong>, <sup>, etc.). WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[55] = "J1. All form fields must be correctly coded with descriptive and accurate labels. WCAG 2.0 Success Criterion 3.3.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html"
+	textMagic[56] = "J2. Grouped form fields must have correctly coded fieldset and legend tags. WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+	textMagic[57] = "J3. Form validation errors must be clearly and accurately identified in text. WCAG 2.0 Success Criterion 3.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-identified.html"
+	textMagic[58] = "J4. Forms must be free of making a selection when attempting to navigate the options (only submits when user makes a selection). WCAG 2.0 Success Criterion 3.2.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-unpredictable-change.html"
+	textMagic[59] = "J5. Avoid orphan label tags. WCAG 2.0 Success Criterion 1.3.1, https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"	
+	textMagic[60] = "K1. The role of an element (e.g., Button) must be properly defined, accurate, and communicated to assistive technology. WCAG 2.0 Success Criterion 4.1.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html"
+	textMagic[61] = "K2. The state of an element (expanded or collapsed) must be properly defined, accurate, and communicated to assistive technology. WCAG 2.0 Success Criterion 4.1.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html"
+	textMagic[62] = "K3. modal dialogues must be usable with keyboard alone and assistive technology. Focus management, hiding underlying content, etc. Multiple WCAG 2.0 Criterion, https://www.w3.org/TR/WCAG20/. https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal"
+	textMagic[63] = "K4. Carousels must be usable with keyboard alone and assistive technology. Ability to pause, navigate to individual items, etc. Multiple WCAG 2.0 Criterion, https://www.w3.org/TR/WCAG20/. https://www.w3.org/WAI/tutorials/carousels/"
+	textMagic[64] = "K5. Menus must be usable with keyboard alone and assistive technology. Ability to expand and navigate subitems. Multiple WCAG 2.0 Criterion, https://www.w3.org/TR/WCAG20/. https://www.w3.org/WAI/tutorials/menus/"
+	textMagic[65] = "K6. Expandable/collapsible accordian elements must be usable with keyboard alone and assistive technology. Ability to expand and navigate subitems. Multiple WCAG 2.0 Criterion, https://www.w3.org/TR/WCAG20/. https://www.w3.org/TR/wai-aria-practices-1.1/#accordion"
+	textMagic[66] = "K7. Tabbed Interfaces must be usable with keyboard alone and assistive technology. Ability to tell active tab and navigate to appropriate content. Multiple WCAG 2.0 Criterion, https://www.w3.org/TR/WCAG20/. https://www.w3.org/TR/wai-aria-practices-1.1/#tabpanel"
+	textMagic[67] = "K8. CAPTCHA interfaces must be usable with keyboard alone and assistive technology. Ability to tell the clue and successfully enter and authenticate. Multiple WCAG 2.0 Criterion, https://www.w3.org/TR/WCAG20/. https://www.w3.org/WAI/GL/wiki/Captcha_Alternatives_and_thoughts"
+	textMagic[68] = "K9. When a user selection creates an unexpected change on the page, the change must be communicated to the user. WCAG 2.0 Success Criterion 3.2.2, https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-unpredictable-change.html"
+	textMagicFlag[100] = 0
+	textMagicFlag[101] = 0
+	textMagicFlag[102] = 0
+	textMagicFlag[103] = 0
+	textMagicFlag[1] = 0
+	textMagicFlag[2] = 0
+	textMagicFlag[3] = 0
+	textMagicFlag[4] = 0
+	textMagicFlag[5] = 0
+	textMagicFlag[6] = 0
+	textMagicFlag[7] = 0
+	textMagicFlag[8] = 0
+	textMagicFlag[9] = 0
+	textMagicFlag[10] = 0
+	textMagicFlag[11] = 0
+	textMagicFlag[12] = 0
+	textMagicFlag[13] = 0
+	textMagicFlag[14] = 0
+	textMagicFlag[15] = 0
+	textMagicFlag[16] = 0
+	textMagicFlag[17] = 0
+	textMagicFlag[18] = 0
+	textMagicFlag[19] = 0
+	textMagicFlag[20] = 0
+	textMagicFlag[21] = 0
+	textMagicFlag[22] = 0
+	textMagicFlag[23] = 0
+	textMagicFlag[24] = 0
+	textMagicFlag[25] = 0
+	textMagicFlag[26] = 0
+	textMagicFlag[27] = 0
+	textMagicFlag[28] = 0
+	textMagicFlag[29] = 0
+	textMagicFlag[30] = 0
+	textMagicFlag[31] = 0
+	textMagicFlag[32] = 0
+	textMagicFlag[33] = 0
+	textMagicFlag[34] = 0
+	textMagicFlag[35] = 0
+	textMagicFlag[36] = 0
+	textMagicFlag[37] = 0
+	textMagicFlag[38] = 0
+	textMagicFlag[39] = 0
+	textMagicFlag[40] = 0
+	textMagicFlag[41] = 0
+	textMagicFlag[42] = 0
+	textMagicFlag[43] = 0
+	textMagicFlag[44] = 0
+	textMagicFlag[45] = 0
+	textMagicFlag[46] = 0
+	textMagicFlag[47] = 0
+	textMagicFlag[48] = 0
+	textMagicFlag[49] = 0
+	textMagicFlag[50] = 0
+	textMagicFlag[51] = 0
+	textMagicFlag[52] = 0
+	textMagicFlag[53] = 0
+	textMagicFlag[54] = 0
+	textMagicFlag[55] = 0
+	textMagicFlag[56] = 0
+	textMagicFlag[57] = 0
+	textMagicFlag[58] = 0
+	textMagicFlag[59] = 0
+	textMagicFlag[60] = 0
+	textMagicFlag[61] = 0
+	textMagicFlag[62] = 0
+	textMagicFlag[63] = 0
+	textMagicFlag[64] = 0
+	textMagicFlag[65] = 0
+	textMagicFlag[66] = 0
+	textMagicFlag[67] = 0
+	textMagicFlag[68] = 0
+
+
+	function showInfo(thisResponse)
+	{
+	if (textMagicFlag[thisResponse] == 0)
+	{
+	displayText = displayText + textMagic[thisResponse] + "\n\n"
+	document.htmlChecklist.emailText.value = displayText
+	textMagicFlag[thisResponse] = 1
+	}
+	else
+	{
+	tempText = new Array
+	tempText = displayText.split("\n")
+	displayText = ""
+	for(i=0; i < tempText.length; i++)
+	{
+	if ((tempText[i] != textMagic[thisResponse]) && (tempText[i] > " "))
+	{
+	displayText = displayText + tempText[i] + "\n"
+	}
+	}
+	document.htmlChecklist.emailText.value = displayText
+	textMagicFlag[thisResponse] = 0
+	}
+	}
+//-->
+</script>
+	  
+  </head>
+
+  <body>
+	<a href="#jumplinks" class="sr-only sr-only-focusable">Skip to main content</a>
+	  
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="localDocumentation">Accessibility</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="">HTML pages/sites <span class="sr-only">(current)</span></a>
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>-->
+        </ul>
+<!--        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>-->
+      </div>
+    </nav>
+
+    <main class="container-fluid">
+
+      <div class="starter-template">
+        <h1>HTML Checklist for Pages and Sites</h1>
+        <p class="lead">Use this document to check web pages and web sites for Section 508 (accessibility) compliance. For assistance, contact <a href="mailto:localPerson@workaddress">Local person.</a></p>
+		  
+		  <h2>2019 testing notes</h2>
+		  
+		  <p >The content of this checklist is based on the <a href="https://www.access-board.gov/guidelines-and-standards/communications-and-it/about-the-ict-refresh/final-rule" target="_blank">508-WCAG 2.0 requirements</a> in effect since January 18, 2018, as interpreted in HHS's <a href="https://www.hhs.gov/web/section-508/making-files-accessible/checklist/html/index.html" target="_blank">Digital Communications Division (DCD) checklist.</a> Last checked for changes May 2019 (when HHS's last reviewed date was May 6, 2019). The order of testing here has been optimized for subject matter experts who only control the content area of their pages, with the most-commonly found problems first. Site-related checks are consolidated into a new section. All HHS checkpoints remain. Some procedural and remediation information has been added. If &lsquo;No&rsquo; is answered to any item, meaning something is not Perceivable, Operable, Understandable, or Robust, then the page or site is not 508 compliant. CSS files need to be validated at <a href="http://jigsaw.w3.org/css-validator/#validate_by_input" target="_blank">W3C</a>. NVDA screen reader users: A recommendation for sighted users is to change the default from Insert to Caps Lock. So the instructions below to open the NVDA Elements List is described as Caps Lock-F7. Important remediation resource it would be useful to be familiar with: <a href="https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0&currentsidebar=%23col_overview&levels=aaa" target="_blank">How to Meet WCAG 2 Quick Reference, filtered to AA</a></p>
+			
+            <!--<p>The General and Keyboard Navigation checks in sections A, B, and C should be performed on all pages no matter what is present in the actual content. Sections D – K are content-dependent for your site.</p> -->
+		  
+
+		  <div id="jumplinks" role="navigation" style="margin-bottom:1rem;">
+			  <ul class="nav">
+<!--				  <li class="nav-item">
+					<a class="nav-link active disabled" href="#">Getting started</a>
+				  </li>-->
+				  <li class="nav-item">
+					<a class="nav-link" href="#Links">Links</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#Color">Color</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#Images">Images</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#Tables">Tables</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#Struct">Content structure and navigation</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#AudVid">Audio/video</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#Forms">Forms</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#Misc">Misc.</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#New-updated">New sites, new or updated page templates</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#resources">Other resources</a>
+				  </li>			  
+			  </ul>
+			</div>
+		  
+<!-- ===================== -->
+<!--  Getting started      -->
+<!-- ===================== -->		  
+		  
+		  <h2 id="getting-started">Getting started</h2>
+
+			<p>Use Chrome with the axe and ANDI add-ons for most checks, but use Firefox when testing with the NVDA screen reader, and use Firefox and its Web Developer extension (gear in menu bar) if you want to outline table cells, display alt text on top of the images they belong to, etc. <a href="localDocumentation">More about testing tools and procedures.</a> When work will be turned back to the page/site owner, use the check boxes (starting with the first checkbox below) and email the report, which will ask the page/site owner to finish running the whole checklist. Between documents, reload this page to clear checkboxes.</p>
+
+			  
+<!-- =================== -->
+<!--  One page - content area eval  -->
+<!-- =================== -->
+		<form name="htmlChecklist" id="htmlChecklist">
+
+        <div class="row">
+			
+          <div class="col">
+
+			<p><input name="reject" id="reject" onclick="showInfo('100')" type="checkbox" /><label for="reject">&nbsp; When problems are found, click here to start a rejection note.</label></p>
+			  
+			<p><input name="A6" id="A6" onclick="showInfo('6')" type="checkbox" /><label for="A6">&nbsp; A6. Are all site-controlled documents fully accessible or have a <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-conforming-alt-versions-head" target="_blank">conforming alternate version</a>?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+				  <li>Means documents authored or otherwise controlled by our organization such as PDF files, Word files, etc.</li>
+			  </ul>
+			  
+			<p><input name="BadFilename" id="BadFilename" onclick="showInfo('102')" type="checkbox" /><label for="BadFilename">&nbsp; Spaces or symbols in file name? </label></p>
+			  <ul>
+			  	<li>(from us; not in source checklist)</li>
+			  </ul>
+			
+			<p><input name="B3" id="B3" onclick="showInfo('14')" type="checkbox" /><label for="B3">&nbsp; B3. HTML Validation: Is the page free from major errors defined in <a href="https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F70" target="_blank">W3 Failure #70</a>  when run against an <a href="https://validator.w3.org/" target="_blank">HTML validator</a>?</label></p>
+			  <ul>
+				  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-parses.html" target="_blank">WCAG 2.0 Success Criterion 4.1.1</a></li>
+			  	<li>Use the <a href="https://validator.w3.org/" target="_blank">W3C HTML validator</a> to check whether any opening tags, closing tags or attributes are malformed.</li>
+			  </ul>
+
+<!--			  
+			<p><input name="WordJunk" id="WordJunk" onclick="showInfo('103')" type="checkbox" /><label for="WordJunk">&nbsp; MS Word junk code on page?</label></p>-->
+			  
+			<p class="sectionEnd"><a href="#jumplinks">top of checklist</a></p>			  
+			  
+			  
+			<h2 id="Links">Links</h2>
+			
+			<p><input name="BrokenLinks" id="BrokenLinks" onclick="showInfo('101')" type="checkbox" /><label for="BrokenLinks">&nbsp; Does the page include any broken links?</label>
+			</p>
+			<ul>
+			  <li>(from us; not in source checklist)</li>
+			  <li>Run Chrome "Check My Links" add-on.</li>
+		    </ul>
+			
+			<p><input name="E2" id="E2" onclick="showInfo('31')" type="checkbox" /><label for="E2">&nbsp; E2. Can all link text be understood out of context? If not, does generic link have sufficient content?</label></p>
+			  <ul>
+				<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html"  target="_blank">WCAG 2.0 Success Criterion 2.4.4</a></li>
+				  <li>Screen readers assemble the link text for the whole page, into one decontextualized list. Search engine optimization benefits from good link text.</li>
+				<li>Ginny Redish 2012, see chapter 12, p 259.</li>
+				<li>Usability.gov: <a href="https://guidelines.usability.gov/guidelines/100" target="_blank">Ensure that Embedded Links are Descriptive.</a></li>
+				<li><a href="https://www.doi.gov/employees/drupal/click-here-not" target="_blank">Multiple reasons you should NEVER use the link text "Click here."</a></li>
+			  </ul>
+
+			<p class="sectionEnd"><a href="#jumplinks">top of checklist</a></p>
+			  
+			
+			<h2 id="Color">Color</h2>
+			<p><input name="D1" id="D1" onclick="showInfo('28')" type="checkbox" /><label for="D1">&nbsp; D1. Is information conveyed by methods other than color alone?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html" target="_blank">WCAG 2.0 Success Criterion 1.4.1</a></li>
+				  <li>Problem example: A chart uses green for good and red for bad with no other way to tell them apart.</li>
+			  </ul>
+			  
+			<p><input name="D2" id="D2" onclick="showInfo('29')" type="checkbox" /><label for="D2">&nbsp; D2. Does all text (with the exception of logos) have a contrast ratio of 4.5:1 or greater no matter the font size?</label></p>
+			  <ul>
+				  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" target="_blank">WCAG 2.0 Success Criterion 1.4.3</a> (Size stipulation not considered by HHS)</li>
+				  <li>In Chrome, open the ANDI tool and select &quot;color contrast&quot; from the drop-down, Use the arrow-type buttons to move through the questionable items (if any). Or, run WAVE and click the Contrast tab in the results panel.</li>
+				  <li><a href="https://dequeuniversity.com/rules/axe/3.2/color-contrast?application=AxeChrome" target="_blank">axe: Text elements must have sufficient color contrast against the background</a></li>
+				  <li><a href="https://www.w3.org/TR/2014/NOTE-WCAG20-TECHS-20140916/G18">G18: Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text) and background behind the text</a></li>
+				  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">W3C Understanding WCAG 2.0 Contrast (Minimum) Understanding SC 1.4.3</a> </li>
+			</ul>	  
+
+			<p class="sectionEnd"><a href="#jumplinks">top of checklist</a></p>
+			  
+			  
+			<h2 id="Images">Images</h2>
+			
+			<p>axe, WAVE, ANDI, will test for the existence of alt text. webDS can list out the pages containing images with no alt text (through SEO Spider). May assist reporting problems: Firefox Web Developer Extension (click gear to open):</p>
+			<ul>
+			  <li>Write Alt text to screen: Images &gt; Display Alt Attributes</li>
+			  <li>Outline in red any images w/o alt text: Images &gt; Outline Images Without Alt Attributes</li>
+			</ul>
+			  
+			<p><input name="F1" id="F1" onclick="showInfo('33')" type="checkbox" /><label for="F1">&nbsp; F1. Do all images have an alt attribute?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html" target="_blank">WCAG 2.0 Success Criterion 1.1.1</a></li>
+			  </ul>
+			  
+			<p><input name="F2" id="F2" onclick="showInfo('34')" type="checkbox" /><label for="F2">&nbsp; F2. Do all images conveying information have alt text that provides the same level of understanding a visual user would gain?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html" target="_blank">WCAG 2.0 Success Criterion 1.1.1</a></li>
+			  </ul>
+			  
+			<p><input name="F3" id="F3" onclick="showInfo('35')" type="checkbox" /><label for="F3">&nbsp; F3. Do all decorative images have an empty alt tag (alt=&rdquo;&rdquo;) or are included via the CSS?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html" target="_blank">WCAG 2.0 Success Criterion 1.1.1</a></li>
+			  </ul>
+			  			
+			<p><input name="F5" id="F5" onclick="showInfo('37')" type="checkbox" /><label for="F5">&nbsp; F5. Do complex images have an alternate accessible means of understanding?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html" target="_blank">WCAG 2.0 Success Criterion 1.1.1</a></li>
+			  </ul>
+			  
+			<p><input name="E3" id="E3" onclick="showInfo('32')" type="checkbox" /><label for="E3">&nbsp; E3. Do linked images either have an empty alt tag and link text, or no link text and appropriate alt text?</label></p>			  
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html" target="_blank">WCAG 2.0 Success Criterion 1.1.1</a></li>
+			  </ul>
+			  			  
+			<p><input name="F6" id="F6" onclick="showInfo('38')" type="checkbox" /><label for="F6">&nbsp; F6. Is the page free from images of text? (Picture of an informational table, screenshot of text from another source, etc)</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-text-presentation.html" target="_blank">WCAG 2.0 Success Criterion 1.4.5</a></li>
+			  </ul>
+			  			
+		    <p>Applicable to this section:</p>
+			  <ul>
+			  	<li><a href="https://webaim.org/techniques/alttext/" title="https://webaim.org/techniques/alttext/" target="_blank">WebAIM-Alt text</a></li>
+			  	<li><a href="https://webaim.org/techniques/alttext/#logos">(logo section)</a> | <a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H37" title="https://www.w3.org/TR/WCAG20-TECHS/html.html#H37" target="_blank">WCAG 2.0-H37-Alt for images</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H24" title="https://www.w3.org/TR/WCAG20-TECHS/html.html#H24" target="_blank">WCAG 2.0-H24-Alt for image maps</a></li>
+			  </ul>
+			  
+			<p class="sectionEnd"><a href="#jumplinks">top of checklist</a></p>
+			  			  
+			  
+			<!-- H: Sites containing Tables -->
+			<h2 id="Tables">Tables</h2>
+			  
+			<p>ANDI &gt; Module: Tables, then mouse around on the table. WAVE: Run, click on table icon to see documentation.</p>
+			<p>Tables for layout should be avoided, but can be made to be compliant, if there is justification. Legacy code is more excusable than new code.</p>
+			<p><input name="H1" id="H1" onclick="showInfo('43')" type="checkbox" />
+			  <label for="H1">&nbsp; H1. If layout tables are used, is data table markup avoided (summary, th, id, headers)?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  
+			<p><input name="H2" id="H2" onclick="showInfo('44')" type="checkbox" /><label for="H2">&nbsp; H2. If layout tables are used, is the intended order of the content intact?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html" target="_blank">WCAG 2.0 Success Criterion 1.3.2</a></li>
+			  </ul>
+			  
+			<p><input name="H3" id="H3" onclick="showInfo('45')" type="checkbox" />
+			<label for="H3">&nbsp; H3. Are data tables implemented with data table coding (thead,  tbody, etc.)?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  
+			<p><input name="H4" id="H4" onclick="showInfo('46')" type="checkbox" /><label for="H4">&nbsp; H4. Do all header cells utilize the TH tag? Do all data cells utilize the TD tag?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  
+			<p><input name="H5" id="H5" onclick="showInfo('47')" type="checkbox" /><label for="H5">&nbsp; H5. Do all Header cells contain text?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  
+			<p><input name="H6" id="H6" onclick="showInfo('48')" type="checkbox" /><label for="H6">&nbsp; H6. Do data tables with 1 set of both column and row headers appropriately use scope to associate to data cells?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  
+			<p><input name="H7" id="H7" onclick="showInfo('49')" type="checkbox" /><label for="H7">&nbsp; H7. Do data tables with more than 1 set of column and/or row headers appropriately use id/headers to associate to data cells?</label> 
+			</p>
+				<ul>
+					<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+					<li>Firefox procedures might include:
+					  <ul>
+					    <li>Write table attributes to screen, with tag names and depth: Tools &gt; Web Developer &gt; Outline &gt; Tables &gt; Table cells</li>
+					    <li>Outline tables in red: Tools &gt; Web Developer &gt; Outline &gt; Tables &gt; Tables</li>
+					    <li>Show nested tables and nesting depth: Tools &gt; Web Developer &gt; Information &gt; Display Table Depth</li>
+				      </ul>
+				    </li>
+				</ul>
+			  
+			<p>Applicable to this section:</p>
+			  <ul>
+				  <li><a href="https://webaim.org/techniques/tables/data" title="https://webaim.org/techniques/tables/data" target="_blank">WebAIM-Tables</a></li>
+				  <li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H39" title="https://www.w3.org/TR/WCAG20-TECHS/html.html#H39" target="_blank">WCAG 2.0-H39-Table captions</a></li>
+				  <li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H43" title="https://www.w3.org/TR/WCAG20-TECHS/html.html#H43" target="_blank">WCAG 2.0-43-Ids and headers</a></li>
+				  <li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H63" title="https://www.w3.org/TR/WCAG20-TECHS/html.html#H63" target="_blank">WCAG 2.0-60-Scope</a></li>
+			  </ul>
+
+			<p class="sectionEnd"><a href="#jumplinks">top of checklist</a></p>
+			  
+			  
+			<h2 id="Struct">Content structure and navigation</h2>
+			  
+			  <p>Heading structure can be viewed with WAVE &gt; click the Outline icon in left panel.</p>
+
+			<p><input name="B7" id="B7" onclick="showInfo('18')" type="checkbox" /><label for="B7">&nbsp; B7. Does the page have a title attribute that accurately defines the content?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html" target="_blank">WCAG 2.0 Success Criterion 2.4.2</a></li>
+			  </ul>
+			  
+			<p><input name="A11" id="A11" onclick="showInfo('11')" type="checkbox" /><label for="A11">&nbsp; A11. Do headings accurately describe the content they visually define?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html" target="_blank">WCAG 2.0 Success Criterion 2.4.6</a></li>
+			  </ul>
+			  
+			<p><input name="i2" id="i2" onclick="showInfo('51')" type="checkbox" /><label for="i2">&nbsp; i2. Are visual headings correctly coded with HTML heading tags? (&lt;h1&gt;, &lt;h2&gt;, etc)</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  
+			<p><input name="i3" id="i3" onclick="showInfo('52')" type="checkbox" /><label for="i3">&nbsp; i3. Do heading tags follow a logical hierarchical progression?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  
+			<p><input name="i4" id="i4" onclick="showInfo('53')" type="checkbox" /><label for="i4">&nbsp; i4. Are heading tags only used on text that defines a section of content?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  
+			<p><input name="i5" id="i5" onclick="showInfo('54')" type="checkbox" /><label for="i5">&nbsp; i5. Is emphasized or special text correctly coded with HTML heading tags? (&lt;em&gt;, &lt;strong&gt;, &lt;sup&gt;, etc)</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  
+			<p><input name="i1" id="i1" onclick="showInfo('50')" type="checkbox" /><label for="i1">&nbsp; i1. Are all visual bulleted and numbered lists correctly coded with HTML list tags?</label></p>			  
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  			  
+			<p><input name="A8" id="A8" onclick="showInfo('8')" type="checkbox" /><label for="A8">&nbsp; A8. Are operational instructions that rely on sensory characteristics avoided? (Ex. Click the square, blue button to continue)</label> </p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-understanding.html" target="_blank">WCAG 2.0 Success Criterion 1.3.3</a></li>
+			  </ul>
+			  			
+			<p><input name="C1" id="C1" onclick="showInfo('22')" type="checkbox" /><label for="C1">&nbsp; C1. Are all elements that can be operated by a mouse also able to be operated by keyboard?</label></p>
+			  <ul>
+				  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-keyboard-operable.html" target="_blank">WCAG 2.0 Success Criterion 2.1.1.</a></li>
+				  <li>Test with NVDA screen reader; <a href="https://webaim.org/articles/nvda/" target="_blank">WebAIM: Using NVDA to Evaluate Web Accessibility</a></li>
+				  <li><a href="https://webaim.org/techniques/keyboard/" target="_blank">WebAIM: Keyboard Accessibility</a>
+				    <ul>
+				      <li><a href="https://webaim.org/techniques/keyboard/#testing" target="_blank">jump link to Testing section</a>				  </li>
+				    </ul>
+				  </li>
+				  <li>(Menus are covered in <a href="#New-updated">item K5 below</a>.)</li>
+				  <li><a href="https://webaim.org/techniques/semanticstructure/" target="_blank">WebAIM: Semantic structure</a></li>
+				  <li><a href="https://www.ssa.gov/accessibility/keyboard_nav.html" target="_blank">SSA: Use the Keyboard to Navigate Screens</a></li>
+			  </ul>
+			  
+			<p><input name="C2" id="C2" onclick="showInfo('23')" type="checkbox" />
+			  <label for="C2">&nbsp; C2. When tabbing through the page, do all elements have a clear visual indication that they have focus?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html" target="_blank">WCAG 2.0 Success Criterion 2.4.7</a></li>
+			  </ul>
+			  
+			<p><input name="C3" id="C3" onclick="showInfo('24')" type="checkbox" /><label for="C3">&nbsp; C3. When tabbing the page, are keyboard traps avoided?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-trapping.html" target="_blank">WCAG 2.0 Success Criterion 2.1.2</a></li>
+			  </ul>
+			  
+			<p><input name="C4" id="C4" onclick="showInfo('25')" type="checkbox" /><label for="C4">&nbsp; C4. Is the tab order of the page logical?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-order.html" target="_blank">WCAG 2.0 Success Criterion 2.4.3</a></li>
+				  <li>It helps here to understand the code order of the page. To see div order in Firefox WDE: Write div tag names and order to screen: Gear &gt; Information &gt; Display Div Order. Another way to see the code order is to  run  WAVE &gt; click the &quot;No Styles&quot; tab in the left panel.</li>
+			  </ul>
+			  
+			<p><input name="C5" id="C5" onclick="showInfo('26')" type="checkbox" /><label for="C5">&nbsp; C5. When tabbing through the page, are <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-unpredictable-change.html#context-changedef" target="_blank">changes of context</a>  avoided when an element receives focus?</label></p>
+
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-receive-focus.html" target="_blank">WCAG 2.0 Success Criterion 3.2.1</a></li>
+				  <li>Unresolved question: As a best practice, should the headings in the content area of a page be listed in NVDA &gt; CapsLock-F7 &gt; Headings? Needs research.</li>
+			  </ul>
+			  
+			<p>Applicable to this section (and other sections):</p>
+			  <ul>
+				  <li><a href="https://www.smashingmagazine.com/2019/02/accessibility-webinar/" target="_blank">How A Screen Reader User Accesses The Web in 2019</a> - &quot;How and why semantic markup matters.&quot;</li>
+				  
+			  </ul>
+			  </p>
+			
+			
+			<p class="sectionEnd"><a href="#jumplinks">top of checklist</a></p>
+			  
+			  
+			<h2 id="AudVid">Audio/video</h2>
+			  
+			<p><input name="G1" id="G1" onclick="showInfo('39')" type="checkbox" /><label for="G1">&nbsp; G1. Do all audio only or video only (video without any sound) files have an accurate transcript?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-av-only-alt.html" target="_blank">WCAG 2.0 Success Criterion 1.2.1</a></li>
+			  </ul>
+			  
+			<p><input name="G2" id="G2" onclick="showInfo('40')" type="checkbox" /><label for="G2">&nbsp; G2. Do all videos have accurate and synchronized captions?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-captions.html">WCAG 2.0 Success Criterion 1.2.2</a></li>
+			  </ul>
+			  
+			<p><input name="G3" id="G3" onclick="showInfo('41')" type="checkbox" /><label for="G3">&nbsp; G3. Are there any informational  parts of the video that require audio description to be understood by users with limited sight and if so, is a second version with <a href="https://www.hhs.gov/web/section-508/making-files-accessible/hhs-guidance-audio-description.html" target="_blank">audio description</a> available</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-audio-desc-only.html" target="_blank">WCAG 2.0 Success Criterion 1.2.5</a></li>
+			  </ul>
+			  
+			<p><input name="G4" id="G4" onclick="showInfo('42')" type="checkbox" /><label for="G4">&nbsp; G4. Is there a way to turn off sound that automatically plays for more than 3 seconds?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-dis-audio.html" target="_blank">WCAG 2.0 Success Criterion 1.4.2</a></li>
+			  </ul>
+			  
+			<p>Applicable to this section:</p>
+			  
+			  <ul>
+			  	<li><a href="https://webaim.org/techniques/captions/" title="https://webaim.org/techniques/captions/" target="_blank">WebAIM-Captions/transcripts/audio descriptions</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20-TECHS/smil.html" title="https://www.w3.org/TR/WCAG20-TECHS/smil.html" target="_blank">WCAG 2.0-SMIL techniques</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20-TECHS/flash.html" title="https://www.w3.org/TR/WCAG20-TECHS/flash.html" target="_blank">WCAG 2.0-Flash techniques</a></li>
+			  </ul>
+			  
+			<p class="sectionEnd"><a href="#jumplinks">top of checklist</a></p>
+
+			  
+			<h2 id="Forms">Forms</h2>
+
+			<p><input name="J1" id="J1" onclick="showInfo('55')" type="checkbox" /><label for="J1">&nbsp; J1. Are all form fields correctly coded with descriptive and accurate labels?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html" target="_blank">WCAG 2.0 Success Criterion 3.3.2</a></li>
+			  </ul>
+			  
+			<p><input name="J2" id="J2" onclick="showInfo('56')" type="checkbox" /><label for="J2">&nbsp; J2. Do grouped form fields have correctly coded fieldset and legend tags?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  
+			<p><input name="J3" id="J3" onclick="showInfo('57')" type="checkbox" /><label for="J3">&nbsp; J3. Are form validation errors clear and accurately identified in text?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-identified.html" target="_blank">WCAG 2.0 Success Criterion 3.3.1</a></li>
+			  </ul>
+			  
+			<p><input name="J4" id="J4" onclick="showInfo('58')" type="checkbox" /><label for="J4">&nbsp; J4. Is the form free of making a selection when attempting to navigate the options? (only submits when user makes a selection)</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-unpredictable-change.html" target="_blank">WCAG 2.0 Success Criterion 3.2.2</a></li>
+			  </ul>
+			  
+			<p><input name="J5" id="J5" onclick="showInfo('59')" type="checkbox" /><label for="J5">&nbsp; J5. Are Orphan label tags avoided?</label></p>
+			<p>Other resources:</p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  
+			  <p>Applicable to this section:</p>
+			  
+			  <ul>
+			  	<li><a href="https://webaim.org/techniques/forms/controls" title="https://webaim.org/techniques/forms/controls" target="_blank">WebAIM-Forms</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H4" title="https://www.w3.org/TR/WCAG20-TECHS/html.html#H4" target="_blank">WCAG 2.0-H4-Tab order</a></li>
+			  	<li><a href="https://webaim.org/techniques/formvalidation/" title="https://webaim.org/techniques/formvalidation/" target="_blank">WebAIM-Usable/accessible form validation</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H92" title="https://www.w3.org/TR/WCAG20-TECHS/html.html#H92" target="_blank">WCAG 2.0-H92-Colored form labels</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H44" title="https://www.w3.org/TR/WCAG20-TECHS/html.html#H44" target="_blank">WCAG 2.0-H44-Associate text labels with forms</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H65" title="https://www.w3.org/TR/WCAG20-TECHS/html.html#H65" target="_blank">WCAG 2.0-Hx-Title attrib without label</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H71" target="_blank">WCAG 2.0-H71-Fieldsets &amp; legends</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H90" target="_blank">WCAG 2.0-H90-Using label or legend</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H91" target="_blank">WCAG 2.0-91-Form controls &amp; links</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H92" target="_blank">WCAG 2.0-H92-Text cue for colored form control</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H36" title="https://www.w3.org/TR/WCAG20-TECHS/html.html#H36" target="_blank">WCAG 2.0-H36-Form images</a></li>
+			  </ul>
+			  
+			<p class="sectionEnd"><a href="#jumplinks">top of checklist</a></p>
+
+			  
+			<h2 id="Misc">Misc.</h2>
+			  
+			<p><input name="B2" id="B2" onclick="showInfo('13')" type="checkbox" /><label for="B2">&nbsp; B2. Has the language been properly set for foreign words or phrases?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-other-lang-id.html" target="_blank">WCAG 2.0 Success Criterion 3.1.2</a></li>
+			  </ul>
+			  
+			<p><input name="B4" id="B4" onclick="showInfo('15')" type="checkbox" /><label for="B4">&nbsp; B4. Are duplicate ID values on the same page avoided?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-parses.html" target="_blank">WCAG 2.0 Success Criterion 4.1.1</a></li>
+			  </ul>
+			  			  
+			<p><input name="B8" id="B8" onclick="showInfo('19')" type="checkbox" /><label for="B8">&nbsp; B8. Does content intended to be accessible by assistive technology refrain from using display:none or aria-hidden=true?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+			  
+			<p><input name="B9" id="B9" onclick="showInfo('20')" type="checkbox" /><label for="B9">&nbsp; B9. If ARIA is present, does the ARIA coding both meet ARIA specifications and give an accurate representation of the content?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html" target="_blank">WCAG 2.0 Success Criterion 4.1.2</a></li>
+			  </ul>
+			  
+			<p><input name="B10" id="B10" onclick="showInfo('21')" type="checkbox" /><label for="B10">&nbsp; B10. Are Fieldset tags only used for form fields? (Not to make a box around a piece of content)?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">WCAG 2.0 Success Criterion 1.3.1</a></li>
+			  </ul>
+
+			<p><input name="B6" id="B6" onclick="showInfo('17')" type="checkbox" /><label for="B6">&nbsp; B6. Do all frames have a title attribute that accurately defines the content?</label><br>
+			</p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html" target="_blank">WCAG 2.0 Success Criterion 4.1.2</a></li>
+				  <li><a href="https://webaim.org/techniques/frames/" title="https://webaim.org/techniques/frames/" target="_blank">WebAIM-Frames</a></li>
+				  <li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H64" title="https://www.w3.org/TR/WCAG20-TECHS/html.html#H64" target="_blank">WCAG 2.0-H64-Title</a></li>
+				  <li><a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H70" title="https://www.w3.org/TR/WCAG20-TECHS/html.html#H70" target="_blank">WCAG 2.0-H70-noframe, framesets</a></li>
+			  </ul>
+			  			  
+			<p class="sectionEnd"><a href="#jumplinks">top of checklist</a></p>
+			  
+			  
+<!-- ==================== -->
+<!--  Site/template eval  -->
+<!-- ==================== -->	
+			  
+      <h2 id="New-updated">New sites, new or updated page templates</h2>
+
+<p>For designers and developers: common elements (a design system), dynamic content, user controls, etc. - additional tests that are USUALLY outside the content area of a page, meaning,  more for our CMS template people than our content specialists. If these are problems on any specific page, update the template.</p>
+
+			<p><input name="B1" id="B1" onclick="showInfo('12')" type="checkbox" /><label for="B1">&nbsp; B1. Is the default language of the page set?</label></p>
+			  <ul>
+			  		<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-doc-lang-id.html" target="_blank">WCAG 2.0 Success Criterion 3.1.1</a></li>
+			    <li>View source and look at the top line; correct version for English: &lt;html lang="en"&gt;</li>
+			  </ul>
+			  
+			<p><input name="C6" id="C6" onclick="showInfo('27')" type="checkbox" /><label for="C6">&nbsp; C6. Is there a method to bypass blocks of repetitive content (such as navigation / skipnav)?</label></p>
+			  <ul>
+				<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html" target="_blank">WCAG 2.0 Success Criterion 2.4.1</a></li>
+				<li>Firefox and NVDA, must be viewable in Element List: <strong>Caps Lock - F7</strong></li>
+				<li><a href="https://dequeuniversity.com/rules/axe/3.2/skip-link?application=AxeChrome">Deque: The skip-link target should exist and be focusable</a></li>
+			  	<li><a href="https://webaim.org/techniques/skipnav/" target="_blank">WebAIM: "Skip Navigation" Links</a></li>
+				  <li><a href="https://getbootstrap.com/docs/4.3/getting-started/accessibility/" target="_blank">Bootstrap-specific advice</a></li>
+			  </ul>
+			
+			<p><input name="K5" id="K5" onclick="showInfo('64')" type="checkbox" /><label for="K5">&nbsp; K5. Are <a href="https://www.w3.org/WAI/tutorials/menus/" target="_blank">menus</a> able to be used with keyboard alone and assistive technology? Ability to expand and navigate subitems.</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/WCAG20/" target="_blank">Multiple WCAG 2.0 Criterion</a></li>
+				<li>See also <a href="#keyboardNavigation">keyboard navigation advice</a> above.</li>
+			  </ul>
+			  
+			<p><input name="K1" id="K1" onclick="showInfo('60')" type="checkbox" /><label for="K1">&nbsp; K1. Is the role of an element (e.g., Button) properly defined, accurate, and communicated to assistive technology?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html" target="_blank">WCAG 2.0 Success Criterion 4.1.2</a></li>
+			  </ul>
+			  
+			<p><input name="K2" id="K2" onclick="showInfo('61')" type="checkbox" /><label for="K2">&nbsp; K2. Is the state of an element (expanded or collapsed) properly defined, accurate, and communicated to assistive technology?</label> </p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html" target="_blank">WCAG 2.0 Success Criterion 4.1.2</a></li>
+			  </ul>
+			  
+			<p><input name="K3" id="K3" onclick="showInfo('62')" type="checkbox" /><label for="K3">&nbsp; K3. Are <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal" target="_blank">modal dialogues</a> able to be used with keyboard alone and assistive technology? Focus management, hiding underlying content, etc.</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/WCAG20/" target="_blank">Multiple WCAG 2.0 Criterion</a></li>
+			  </ul>
+			  
+			<p><input name="K4" id="K4" onclick="showInfo('63')" type="checkbox" /><label for="K4">&nbsp; K4. Are <a href="https://www.w3.org/WAI/tutorials/carousels/" target="_blank">carousels</a> able to be used with keyboard alone and assistive technology? Ability to pause, navigate to individual items, etc.</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/WCAG20/" target="_blank">Multiple WCAG 2.0 Criterion</a></li>
+			  </ul>
+			  
+			<p><input name="K6" id="K6" onclick="showInfo('65')" type="checkbox" /><label for="K6">&nbsp; K6. Are <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#accordion" target="_blank">expandable/collapsible accordian elements</a> able to be used with keyboard alone and assistive technology? Ability to expand and navigate subitems</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/WCAG20/" target="_blank">Multiple WCAG 2.0 Criterion</a></li>
+			  </ul>
+			  
+			<p><input name="K7" id="K7" onclick="showInfo('66')" type="checkbox" /><label for="K7">&nbsp; K7. Are <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#tabpanel" target="_blank">Tabbed Interfaces</a> able to be used with keyboard alone and assistive technology? Ability to tell active tab and navigate to appropriate content</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/WCAG20/" target="_blank">Multiple WCAG 2.0 Criterion</a></li>
+			  </ul>
+			  
+			<p><input name="K8" id="K8" onclick="showInfo('67')" type="checkbox" /><label for="K8">&nbsp; K8. Are <a href="https://www.w3.org/WAI/GL/wiki/Captcha_Alternatives_and_thoughts" target="_blank">CAPTCHA interfaces</a> able to be used with keyboard alone and assistive technology? Ability to tell the clue and successfully enter and authenticate</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/WCAG20/" target="_blank">Multiple WCAG 2.0 Criterion</a></li>
+			  </ul>
+			  
+			<p><input name="K9" id="K9" onclick="showInfo('68')" type="checkbox" /><label for="K9">&nbsp; K9. If a user selection creates an unexpected change on the page, was the change communicated to the user?</label></p>  
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-unpredictable-change.html" target="_blank">WCAG 2.0 Success Criterion 3.2.2</a></li>
+			  </ul>
+			  		
+			<p><input name="E1" id="E1" onclick="showInfo('30')" type="checkbox" /><label for="E1">&nbsp; E1. Are links distinguished by a method other than color?</label></p>	
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html"  target="_blank">WCAG 2.0 Success Criterion 1.4.1</a></li>
+			  </ul>
+			  
+			<p><input name="B5" id="B5" onclick="showInfo('16')" type="checkbox" /><label for="B5">&nbsp; B5. With styles disabled, is the reading order of the content logical?</label></p>
+				<ul>
+				  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html" target="_blank">WCAG 2.0 Success Criterion 1.3.2</a></li>
+				  <li>Open WAVE; in the top left, click the No Styles tab.</li>
+				  <li>Outline div structure in red: Gear &gt; Information &gt; Display Div Order</li>	
+			  	</ul>
+			
+		
+			<p><input name="F4" id="F4" onclick="showInfo('36')" type="checkbox" /><label for="F4">&nbsp; F4. Is the CSS free from any images conveying information that do not have a text alternative?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html" target="_blank">WCAG 2.0 Success Criterion 1.1.1</a></li>
+			  </ul>
+			  		
+			<p><input name="A1" id="A1" onclick="showInfo('1')" type="checkbox" /><label for="A1">&nbsp; A1. Is the site free from content that flashes more than 3 times per second?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html" target="_blank">WCAG 2.0 Success Criterion 2.3.1</a></li>
+			  	<li><a href="https://webaim.org/articles/seizure/" title="https://webaim.org/articles/seizure/" target="_blank">WebAIM-Seizure disorders</a></li>
+			  	<li><a href="https://www.w3.org/TR/WCAG20/#seizure" title="https://www.w3.org/TR/WCAG20/#seizure" target="_blank">WCAG 2.0 item 2.3</a></li>
+			  	<li><a href="https://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G19" title="https://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G19" target="_blank">WCAG 2.0-G19-Less than 3 flashes/second</a></li>
+			  	<li><a href="https://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G176" title="https://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G176" target="_blank">WCAG 2.0-G176-Small Flash area</a></li>
+			  	<li><a href="https://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G15" title="https://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G15" target="_blank">WCAG 2.0-G15-Tools re: thresholds</a></li>
+			  </ul>
+			  			  
+			<p><input name="A4" id="A4" onclick="showInfo('4')" type="checkbox" /><label for="A4">&nbsp; A4. Is the order of navigational elements consistent across the site?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-locations.html" target="_blank">WCAG 2.0 Success Criterion 3.2.3</a></li>
+			  </ul>
+			  
+			<p><input name="A9" id="A9" onclick="showInfo('9')" type="checkbox" /><label for="A9">&nbsp; A9. Is the site free from pages that re-direct after a timeout?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html" target="_blank">WCAG 2.0 Success Criterion 2.2.1</a></li>
+			  </ul>
+			  
+			<p><input name="A10" id="A10" onclick="showInfo('10')" type="checkbox" /><label for="A10">&nbsp; A10. Are elements with the same functionality consistently identified across pages?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-functionality.html" target="_blank">WCAG 2.0 Success Criterion 3.2.4</a></li>
+			  </ul>
+			  		
+			<p><input name="A3" id="A3" onclick="showInfo('3')" type="checkbox" /><label for="A3">&nbsp; A3. Is there more than one way to locate a web page? (Site Search, Site Map, etc.)</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-mult-loc.html" target="_blank">WCAG 2.0 Success Criterion 2.4.5</a></li>
+			  </ul>
+			  			  
+			<p><input name="A2" id="A2" onclick="showInfo('2')" type="checkbox" /><label for="A2">&nbsp; A2. Can all text be resized up to 200% without degrading quality/understandability?</label></p>		
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html" target="_blank">WCAG 2.0 Success Criterion 1.4.4</a></li>
+			  </ul>
+			  				
+			<p><input name="A5" id="A5" onclick="showInfo('5')" type="checkbox" /><label for="A5">&nbsp; A5. Can auto updating, moving, blinking, and scrolling content be paused or adjusted?</label></p>			
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html" target="_blank">WCAG 2.0 Success Criterion 2.2.2</a></li>
+			  </ul>
+			  
+			<p><input name="A7" id="A7" onclick="showInfo('7')" type="checkbox" /><label for="A7">&nbsp; A7. If there are any time limits on interacting with content, can they be turned off, adjusted, or extended?</label></p>
+			  <ul>
+			  	<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html"  target="_blank">WCAG 2.0 Success Criterion 2.2.1</a></li>
+			  </ul>
+			  			  
+			<p class="sectionEnd"><a href="#jumplinks">top of checklist</a></p>
+			  
+			  
+    	  </div><!--end col-->
+			
+			
+<!-- ============================== -->
+<!--  Box for email rejection note  -->
+<!-- ============================== -->	
+			
+    <div class="col-4">
+
+		<div class="sticky-top">
+			<h2>Rejection-note builder</h2>
+			<label for="emailText">Paste these instructions (if any) into Outlook</label>
+			, when the problem-finder and the problem-solver are different people.<br />
+
+			<textarea id="emailText" name="emailText" rows="25" readonly="readonly"></textarea><!--cols="66" -->
+		</div><!--end sticky-top-->
+		
+	</div><!--end column-->
+			
+	</div><!--end row-->
+
+			</form>
+  
+		
+<!-- ================= -->
+<!--  Other resources  -->
+<!-- ================= -->
+		
+	<div class="additionalInfo">
+
+	<h2 id="resources">Other resources</h2>
+	<ul>
+	  <li><a href="https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0&currentsidebar=%23col_overview&levels=aaa" target="_blank">How to Meet WCAG 2 Quick Reference, filtered to AA</a></li>
+		
+		<li><a href="https://www.w3.org/TR/WCAG20-TECHS/intro.html" target="_blank">Techniques for complying with WCAG 2.0</a></li>
+		
+		<li><a href="https://dequeuniversity.com/rules/axe/3.2/" target="_blank">Deque list of axe rules</a></li>
+		<li><a href="https://webaim.org/articles/nvda/" target="_blank">WebAIM: Using NVDA to Evaluate Web Accessibility</a></li>
+		
+		<li><a href="https://www.hhs.gov/web/section-508/making-files-accessible/index.html">HHS's Making Files Accessible</a></li>
+		
+		<li><a href="https://www.hhs.gov/web/section-508/training-in-508/index.html" target="_blank">HHS's Training in 508 Compliance and Accessible Design</a></li>
+		
+		<li><a href="https://www.hhs.gov/web/section-508/index.html" target="_blank">HHS Section 508 microsite</a></li>
+	  
+		<li><a href="https://www.w3.org/TR/WCAG20-TECHS/Overview.html" target="_blank">WCAG 2.0 Overview from W3C</a></li>
+	  
+		<li><a href="https://webaim.org/standards/wcag/checklist" target="_blank">WebAIM's WCAG 2.0 Checklist for HTML documents</a></li>
+		<li><a href="https://www.nvaccess.org/files/nvda/documentation/userGuide.html" target="_blank">NVDA User Guide (complex)</a></li>
+		<li><a href="https://getbootstrap.com/docs/4.3/getting-started/accessibility/" target="_blank">Bootstrap-specific accessibility notes</a></li>
+	  	  	 	 
+		<li>The checklist that inspired this one: <a href="http://section508.pbworks.com/Another-Section-508-Checklist" target="_blank">Another Section 508 Checklist (now outdated - don't use, just giving credit)</a></li>
+	</ul>
+		
+		<p class="sectionEnd"><a href="#jumplinks">top of checklist</a></p>
+		
+
+	  </div><!--end additionalInfo-->
+   
+		  
+      </div><!--end starter-template-->
+
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
