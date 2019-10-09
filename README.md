@@ -21,4 +21,5 @@ Section 508 procedures and remediation advice in one interactive page
 
 ## View the checklist ##
 
+BUT the interactivity will not work in this Preview mode...
 http://htmlpreview.github.com/?https://github.com/wendlingd/Yet-Another-508-HTML-Checklist/blob/master/HTML-checklist.html
