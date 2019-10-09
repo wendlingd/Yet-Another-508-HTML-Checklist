@@ -3,8 +3,8 @@ Section 508 procedures and remediation advice in one interactive page
 
 ## Design challenge ##
 
-1. Support accessibility testers AND authors who are submitting work
-2. Multiple testers should use the same "floor" of testing procedures, to be consistent across the enterprise
+1. Support accessibility testers AND the authors who are submitting work, through a self-service testing resource
+2. Multiple testers should use the same enforced "floor" of testing procedures, to be consistent across the enterprise
 3. Tell the web content author exactly what the first ~2 problems are, and then tell them to run this checklist themselves before re-submitting
 4. Implement BOTH the test procedures AND remediation advice; send the "Just-in-time" advice to the author as you turn the file(s) back for more work - within the CMS or in email
 5. Don't use a database. By not using a database the checklist can be used as one page on an intranet or even one page loaded into the browser from disk - interactivity without a complex back end.
