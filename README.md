@@ -31,3 +31,10 @@ I would not want to promote an accessibility testing tool that is not itself acc
 ### Primary JavaScript accessibility issue with this checklist (I assume) ##
 
 How to announce remediation advice at the onclick event (click or spacebar - this is a device-independent event handler), WITHOUT moving the keyboard focus from the current procedure.
+
+### Perhaps relevant ###
+
+- https://www.w3.org/WAI/WCAG21/Understanding/name-role-value (4.1.2)
+- https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html (4.1.3)
+- https://www.w3.org/WAI/WCAG21/Understanding/focus-order (2.4.3)
+
