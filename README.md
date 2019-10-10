@@ -10,14 +10,12 @@ Section 508 procedures and remediation advice in one interactive page
 5. Don't use a database. This Minimum Viable Product (MVP) does not use a database so the checklist can be used as one page on an intranet or even one page loaded into the browser from disk - interactivity without back-end complexity; anyone can run it with minimal set-up.
 
 ## Long-term impacts (we hope) ##
-1. Novice testers solve their problems today and get their content posted
-2. Novice testers get better over time in concrete ways, by learning as they publish
-3. Novice testers do not try to boil the ocean when trying to get content published; they don't need to learn everything immediately. They can focus on what is WRONG, NOW and still meet their publishing deadlines
-4. The enterprise enforces the low end of accessibility requirements consistently across multiple testers and across the enterprise
-5. While the enterprise has churn among authors, new authors are not confused (or not for very long) about what is required
-6. Web authors gain knowledge and skills over time, even under deadline pressure
-7. Allow authors to test themselves to the enterprise standard
-8. Save time for the testing group by sending the author to authoritative resources.
+1. The enterprise enforces the low end of accessibility requirements consistently across multiple testers and across the enterprise
+2. Novice testers SOLVE THEIR PROBLEMS today and get their content posted; they do not try to boil the ocean under deadline pressure; they don't need to learn everything immediately. They can focus on what is WRONG, NOW and still meet their publishing deadlines
+3. Novice testers BUILD THEIR SKILLS over time in concrete ways, by learning as they publish
+4. While the enterprise has churn among authors, new authors are not confused (or not for very long) about what is required of them
+5. Allow authors to test themselves to the enterprise standard before content submission or re-submission
+6. Save time for the testing group by sending the author to authoritative resources to solve their problems.
 
 ## View the checklist ##
 
