@@ -3,12 +3,11 @@ Section 508 procedures and remediation advice in one interactive page
 
 ## Design challenge ##
 
-1. Support accessibility testers AND the authors who are submitting work, through a self-service testing resource
-2. Multiple testers should use the same enforced "floor" of testing procedures, to be consistent across the enterprise
+1. Support accessibility testers AND the authors who are submitting work, through a self-service testing resource used by the organization gatekeepers and subject matter experts/the content authors; show BOTH sides of the work - the test procedures AND the remediation advice; testers can send "Just-In-Time" SPECIFIC advice to the author as the file(s) are turned back for more work
+2. Multiple testers should use the same enforced "floor" of testing procedures, to be consistent across the enterprise; if one inaccessible file is tested by five testers, the result should be the same, correct, advice
 3. Tell the web content author exactly what the first ~2 problems are, and then tell them to run this checklist themselves before re-submitting
-4. Show BOTH sides of this work - the test procedures AND the remediation advice; send the "Just-in-time" advice to the author as you turn the file(s) back for more work - within the CMS or in email
-5. Order procedures to FIRST cover the most common errors by the content authors/novice testers (the organization's subject matter experts); other staff, being more familiar with accessibility, will rely on this tool less
-6. Don't use a database. This Minimum Viable Product (MVP) does not use a database so the checklist can be used as one page on an intranet or even one page loaded into the browser from disk - interactivity without back-end complexity; anyone can run it with minimal set-up.
+4. Order procedures to FIRST cover the most common errors by the content authors/novice testers (the organization's subject matter experts); other staff, being more familiar with accessibility, will rely on this tool less
+5. Don't use a database. This Minimum Viable Product (MVP) does not use a database so the checklist can be used as one page on an intranet or even one page loaded into the browser from disk - interactivity without back-end complexity; anyone can run it with minimal set-up.
 
 ## Long-term impacts (we hope) ##
 1. Novice testers solve their problems today and get their content posted
