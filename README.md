@@ -34,7 +34,8 @@ How to announce remediation advice at the onclick event (click or spacebar - thi
 
 ### Perhaps relevant ###
 
-- https://www.w3.org/WAI/WCAG21/Understanding/name-role-value (4.1.2)
-- https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html (4.1.3)
-- https://www.w3.org/WAI/WCAG21/Understanding/focus-order (2.4.3)
+- https://www.w3.org/WAI/WCAG21/Understanding/name-role-value (WCAG21 4.1.2)
+- https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html (WCAG21 4.1.3)
+- https://www.w3.org/WAI/WCAG21/Understanding/focus-order (WCAG21 2.4.3)
+- https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox (WAI-ARIA Authoring Practices 1.1)
 
