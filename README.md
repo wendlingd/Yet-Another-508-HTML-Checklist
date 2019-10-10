@@ -12,7 +12,7 @@ Section 508 procedures and remediation advice in one interactive page
 ## Long-term impacts (we hope) ##
 1. Novice testers solve their problems today and get their content posted
 2. Novice testers get better over time in concrete ways, by learning as they publish
-3. Novice testers do not try to boil the ocean when trying to get content publishedl; they don't need to learn everything immediately. They can focus on what is WRONG, NOW
+3. Novice testers do not try to boil the ocean when trying to get content published; they don't need to learn everything immediately. They can focus on what is WRONG, NOW and still meet their publishing deadlines
 4. The enterprise enforces the low end of accessibility requirements consistently across multiple testers and across the enterprise
 5. While the enterprise has churn among authors, new authors are not confused (or not for very long) about what is required
 6. Web authors gain knowledge and skills over time, even under deadline pressure
