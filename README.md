@@ -7,7 +7,7 @@ Section 508 procedures and remediation advice in one interactive page
 2. Multiple testers should use the same enforced "floor" of testing procedures, to be consistent across the enterprise; if one inaccessible file is tested by five testers, the result should be the same, correct, advice
 3. Tell the web content author exactly what the first ~2 problems are, and then tell them to run this checklist themselves before re-submitting
 4. Order procedures to FIRST cover the most common errors by the content authors/novice testers (the organization's subject matter experts); other staff, being more familiar with accessibility, will rely on this tool less
-5. Don't use a database. This Minimum Viable Product (MVP) does not use a database so the checklist can be used as one page on an intranet or even one page loaded into the browser from disk - interactivity without back-end complexity; anyone can run it within minutes, with minimal set-up. But, lack of server-side processing means that this file must support accessibility for the tool itself.
+5. Don't use a database. This Minimum Viable Product (MVP) does not use a database so the checklist can be used as one page on an intranet or even one page loaded into the browser from disk - interactivity without back-end complexity; anyone can run it within minutes, with minimal set-up. But, lack of server-side processing means that this file must support sufficient client-side accessibility.
 
 ## Long-term impacts (we hope) ##
 1. The enterprise enforces the low end of accessibility requirements consistently across multiple testers and across the enterprise
