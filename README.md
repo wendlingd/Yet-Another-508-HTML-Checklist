@@ -24,6 +24,10 @@ http://htmlpreview.github.com/?https://github.com/wendlingd/Yet-Another-508-HTML
 
 ## Problems ##
 
-The interactivity comes from a JavaScript self-posting form. When a checkbox is checked, remediation advice is written into the textarea id="emailText". Shouldn't the user be notified of the new remediation advice that has appeared on the screen? Part of the page has been updated. How might a person hear from the screen reader what the new content is? NVDA just says, "Check." I think the entire remediation block should be read when a box is checked. But, I'm out of my depth; perhaps there's a better solution?
+The interactivity comes from a JavaScript self-posting form. When a checkbox is checked, remediation advice is written into the textarea id="emailText". Shouldn't the user be notified of the new remediation advice that has appeared on the screen? Part of the page has been updated. How might a person hear from the screen reader what the new content is? NVDA just says, "Check." I think the entire remediation block should be read when a box is checked, and if the checkbox is clicked to remove remediation advice, there should be a different message read. But, I'm out of my depth; perhaps there's a better solution?
 
 I would not want to promote an accessibility testing tool that is not itself accessible.
+
+### Primary JavaScript accessibility issue with this checklist (I assume) ##
+
+How to announce remediation advice at the onclick event (click or spacebar - this is a device-independent event handler), WITHOUT moving the keyboard focus from the current procedure.
