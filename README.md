@@ -19,7 +19,7 @@ Section 508 procedures and remediation advice in one interactive page
 
 ## View the checklist ##
 
-BUT the interactivity will not work in this Preview mode...
+BUT some networks block the interactivity code, so if the remediation advice does not appear when you check a box, you may need to run the code locally in order to work...
 http://htmlpreview.github.com/?https://github.com/wendlingd/Yet-Another-508-HTML-Checklist/blob/master/HTML-checklist.html
 
 ## Problems ##
