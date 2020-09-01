@@ -1,3 +1,5 @@
+> :warning: **Source guidelines have changed**: https://www.hhs.gov/web/section-508/accessibility-checklists/index.html, Web Site checklist, will need to be analyzed to see how this project should be changed.
+
 # Yet-Another-508-HTML-Checklist
 Section 508 procedures and remediation advice in one interactive page
 
